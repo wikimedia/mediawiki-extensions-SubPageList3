@@ -167,10 +167,11 @@ $messages['es'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Huji
  * @author Mjbmr
  */
 $messages['fa'] = array(
-	'spl3-desc' => 'ایجاد خودکار فهرستی از صفحات از یک صفحه با استفاده از برچسب <code><nowiki><splist /></nowiki></code>',
+	'spl3-desc' => 'برچسب <code><nowiki><splist /></nowiki></code> را اضافه می‌کند که با آن می‌توان فهرستی از زیرصفحه‌های یک صفحه ساخت',
 	'spl3_debug' => 'مقدار ناشناخته برای گزینهٔ $1.',
 	'spl3_nosubpages' => '$1 هیچ زیر صفحه‌ای برای فهرست ندارد.',
 );
