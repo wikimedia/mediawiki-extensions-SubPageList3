@@ -601,6 +601,15 @@ $messages['vo'] = array(
 	'spl3_nosubpages' => 'Pad: $1 no labon donapadis ad palisedön.',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'spl3-desc' => 'לייגט צו דעם טאַג <code><nowiki><splist /></nowiki></code> וואס שאפט א ליסטע פון אונטערבלעטער פון א בלאט',
+	'spl3_debug' => 'אומבאקאנטער ווערט פאר אפציע $1',
+	'spl3_nosubpages' => '$1 האט נישט קיין אונטערבלעטער.',
+);
+
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gzdavidwong
  * @author Liangent
