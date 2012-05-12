@@ -540,7 +540,7 @@ $messages['tg-cyrl'] = array(
 	'spl3_nosubpages' => '$1 дорои ҳеҷ зерсаҳифаҳое барои феҳристкунӣ нест.',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
