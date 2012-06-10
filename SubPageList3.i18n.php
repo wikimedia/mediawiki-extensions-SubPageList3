@@ -284,11 +284,12 @@ $messages['it'] = array(
 /** Japanese (日本語)
  * @author Aotake
  * @author Mizusumashi
+ * @author Shirayuki
  */
 $messages['ja'] = array(
-	'spl3-desc' => '<code><nowiki><splist /></nowiki></code>タグを使っているページのサブページ一覧を自動生成する',
+	'spl3-desc' => '<code><nowiki><splist /></nowiki></code>タグを使っているページの下位ページ一覧を自動生成する',
 	'spl3_debug' => '$1オプションの値が不明。',
-	'spl3_nosubpages' => '$1には一覧すべきサブページがありません。',
+	'spl3_nosubpages' => '$1には列挙できる下位ページがありません。',
 );
 
 /** Javanese (Basa Jawa)
