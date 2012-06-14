@@ -74,7 +74,7 @@ $messages['be-tarask'] = array(
 	'spl3_nosubpages' => '$1 ня мае падстаронак.',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
@@ -82,7 +82,7 @@ $messages['bg'] = array(
 	'spl3_nosubpages' => '$1 не съдържа подстраници, които да бъдат показани.',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -91,7 +91,7 @@ $messages['br'] = array(
 	'spl3_nosubpages' => "N'eus ispajenn ebet da rollañ evit $1",
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -100,7 +100,7 @@ $messages['bs'] = array(
 	'spl3_nosubpages' => '$1 nema podstranica za prikaz.',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author SMP
  */
 $messages['ca'] = array(
@@ -109,7 +109,7 @@ $messages['ca'] = array(
 	'spl3_nosubpages' => '$1 no té subpàgines a mostrar.',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
@@ -157,7 +157,7 @@ $messages['eo'] = array(
 	'spl3_nosubpages' => '$1 havas neniujn subpaĝojn por listigi.',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  */
 $messages['es'] = array(
@@ -176,7 +176,7 @@ $messages['fa'] = array(
 	'spl3_nosubpages' => '$1 هیچ زیر صفحه‌ای برای فهرست ندارد.',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  * @author Olli
  * @author Silvonen
@@ -187,7 +187,7 @@ $messages['fi'] = array(
 	'spl3_nosubpages' => 'Sivulla $1 ei ole alasivuja.',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author Grondin
  * @author Urhixidur
@@ -198,7 +198,7 @@ $messages['fr'] = array(
 	'spl3_nosubpages' => '$1 n’a pas de sous-pages à énumérer.',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -244,7 +244,7 @@ $messages['hsb'] = array(
 	'spl3_nosubpages' => '$1 nima podstrony za lisćinu.',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Glanthor Reviol
  */
@@ -254,7 +254,7 @@ $messages['hu'] = array(
 	'spl3_nosubpages' => 'A(z) $1 című lapnak nincsenek allapjai.',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -272,7 +272,7 @@ $messages['id'] = array(
 	'spl3_nosubpages' => '$1 tidak memiliki upa halaman untuk didaftarkan.',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Darth Kule
  */
 $messages['it'] = array(
@@ -327,7 +327,7 @@ $messages['lb'] = array(
 	'spl3_nosubpages' => '$1 huet keng Ënnersäite fir ze weisen',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -381,7 +381,7 @@ $messages['nl'] = array(
 	'spl3_nosubpages' => "$1 heeft geen subpagina's.",
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Frokor
  */
 $messages['nn'] = array(
@@ -390,7 +390,7 @@ $messages['nn'] = array(
 	'spl3_nosubpages' => '$1 har ingen undersider å vise.',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -399,7 +399,7 @@ $messages['oc'] = array(
 	'spl3_nosubpages' => "$1 a pas de sospaginas d'enumerar.",
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Wpedzich
  */
 $messages['pl'] = array(
@@ -417,7 +417,7 @@ $messages['pms'] = array(
 	'spl3_nosubpages' => "$1 a l'ha pa ëd sotpàgine da listé.",
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  * @author Malafaya
  */
@@ -427,7 +427,7 @@ $messages['pt'] = array(
 	'spl3_nosubpages' => '$1 não tem subpáginas para listar.',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  */
 $messages['pt-br'] = array(
@@ -436,7 +436,7 @@ $messages['pt-br'] = array(
 	'spl3_nosubpages' => '$1 não tem subpáginas para listar.',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
@@ -444,7 +444,7 @@ $messages['ro'] = array(
 	'spl3_nosubpages' => '$1 nu are subpagini pentru afișat.',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -453,7 +453,7 @@ $messages['roa-tara'] = array(
 	'spl3_nosubpages' => '$1 non ge tène sottopàggene da elengà.',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -479,7 +479,7 @@ $messages['si'] = array(
 	'spl3_nosubpages' => '$1 සතුව ලැයිස්තුගත කිරීමට උපපිටු නැත.',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -488,7 +488,7 @@ $messages['sk'] = array(
 	'spl3_nosubpages' => '$1 nemá zobraziteľné podstránky.',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -497,7 +497,7 @@ $messages['sl'] = array(
 	'spl3_nosubpages' => '$1 nima podstrani za navesti.',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  * @author Михајло Анђелковић
  */
@@ -507,7 +507,7 @@ $messages['sr-ec'] = array(
 	'spl3_nosubpages' => '$1 нема подстраница.',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -516,7 +516,7 @@ $messages['sr-el'] = array(
 	'spl3_nosubpages' => '$1 nema podstrana.',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author M.M.S.
  */
 $messages['sv'] = array(
@@ -532,7 +532,7 @@ $messages['te'] = array(
 	'spl3_nosubpages' => '$1లో చూపించాల్సిన ఉపపేజీలు ఏమీలేవు.',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -541,7 +541,7 @@ $messages['tg-cyrl'] = array(
 	'spl3_nosubpages' => '$1 дорои ҳеҷ зерсаҳифаҳое барои феҳристкунӣ нест.',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -568,7 +568,7 @@ $messages['tr'] = array(
 	'spl3_nosubpages' => '$1, listelenecek altsayfalara sahip değil.',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Тест
  */
 $messages['uk'] = array(
@@ -577,7 +577,7 @@ $messages['uk'] = array(
 	'spl3_nosubpages' => '$1 не має підсторінок для складання списку.',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -611,7 +611,7 @@ $messages['yi'] = array(
 	'spl3_nosubpages' => '$1 האט נישט קיין אונטערבלעטער.',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Gzdavidwong
  * @author Liangent
  * @author PhiLiP
@@ -622,7 +622,7 @@ $messages['zh-hans'] = array(
 	'spl3_nosubpages' => '$1没有子页面来显示',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Anakmalaysia
  * @author Liangent
  * @author Mark85296341
