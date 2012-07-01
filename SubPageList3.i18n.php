@@ -64,7 +64,7 @@ $messages['arz'] = array(
 	'spl3_nosubpages' => '$1 لا تمتلك أى صفحات فرعية لوضعها فى قائمة.',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -128,7 +128,7 @@ $messages['de'] = array(
 	'spl3_nosubpages' => '$1 hat keine Unterseiten.',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -207,7 +207,7 @@ $messages['frp'] = array(
 	'spl3_nosubpages' => '$1 at gins de sot-pâge a ènumèrar.',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -235,7 +235,7 @@ $messages['he'] = array(
 	'spl3_nosubpages' => 'ל־$1 אין דפי משנה להצגה.',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -462,7 +462,7 @@ $messages['ru'] = array(
 	'spl3_nosubpages' => '$1 не имеет подстраниц для включения в список.',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
