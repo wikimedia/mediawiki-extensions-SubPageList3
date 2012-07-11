@@ -372,9 +372,7 @@ $messages['ms'] = array(
 	'spl3_nosubpages' => '$1 tiada sublaman untuk disenaraikan.',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- */
+/** Norwegian Bokmål (‪norsk (bokmål)‬) */
 $messages['nb'] = array(
 	'spl3-desc' => 'Lager automatisk en liste over undersidene til en side ved å bruke taggen <code><nowiki><splist /></nowiki></code>',
 	'spl3_debug' => 'Ukjent verdi for valg $1.',
