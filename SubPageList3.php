@@ -69,7 +69,6 @@ class SubpageList3 {
 	 */
 	private $parser;
 
-
 	/**
 	 * @var Title
 	 */
@@ -491,6 +490,8 @@ class SubpageList3 {
 			if ( $this->mode == 'bar' ) {
 				$retval = implode( "", $list );
 			}
+			// Workaround for bug where the first items */# in a list would remain unparsed
+			$retval = "\n" . $retval;
 		}
 
 		return $retval;
