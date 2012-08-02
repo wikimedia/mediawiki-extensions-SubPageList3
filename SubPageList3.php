@@ -37,6 +37,7 @@ $wgExtensionMessagesFiles['SubPageList3'] = $dir . 'SubPageList3.i18n.php';
  * Hook in function
  *
  * @param $parser Parser
+ * @return bool
  */
 function efSubpageList3( &$parser ) {
 	$parser->setHook( 'splist', 'efRenderSubpageList3' );
@@ -45,6 +46,10 @@ function efSubpageList3( &$parser ) {
 
 /**
  * Function called by the Hook, returns the wiki text
+ * @param $input
+ * @param $args
+ * @param $parser Parser
+ * @return string
  */
 function efRenderSubpageList3( $input, $args, $parser ) {
 	$list = new SubpageList3( $parser );
@@ -187,7 +192,7 @@ class SubpageList3 {
 	function __construct( $parser ) {
 		global $wgContLang;
 		$this->parser = $parser;
-		$this->title = $parser->mTitle;
+		$this->title = $parser->getTitle();
 		$this->language = $wgContLang;
 	}
 
@@ -366,11 +371,11 @@ class SubpageList3 {
 		} elseif( $this->ordermethod == 'lastedit' ) {
 			$options['ORDER BY'] = 'page_touched ' . $order;
 		}
-		if( $this->parent !== -1) {
+		if( $this->parent !== -1 ) {
 			$this->ptitle = Title::newFromText( $this->parent );
 			# note that non-existent pages may nevertheless have valid subpages
 			# on the other hand, not checking that the page exists can let input through which causes database errors
-			if ( $this->ptitle instanceof Title && $this->ptitle->exists() && $this->ptitle->userCanRead() ) {
+			if ( $this->ptitle instanceof Title && $this->ptitle->exists() && $this->ptitle->userCan( 'read' ) ) {
 				$parent = $this->ptitle->getDBkey();
 				$this->parent = $parent;
 				$this->namespace = $this->ptitle->getNsText();
@@ -437,10 +442,6 @@ class SubpageList3 {
 	/**
 	 * create whole list using makeListItem
 	 * @param $titles Array all page titles
-	 * @param $token string the token symbol:
-	 *  - * for ul,
-	 *  - # for ol
-	 *  - · for horizontal lists
 	 * @return string the whole list
 	 * @see SubPageList::makeListItem
 	 */
@@ -461,13 +462,13 @@ class SubpageList3 {
 		$list = array();
 		foreach( $titles as $title ) {
 			$lv = substr_count($title, '/') - $parlv;
-			if ( $this->kidsonly!=1 || $lv < 2 ) {
+			if ( $this->kidsonly != 1 || $lv < 2 ) {
 				if ($this->showparent) {
 					$lv++;
 				}
 				$ss = "";
 				if( $this->mode == 'bar' ) {
-					if( $c>0) {
+					if( $c > 0 ) {
 						$ss .= $this->token;
 					}
 				} else {
