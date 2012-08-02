@@ -446,6 +446,7 @@ class SubpageList3 {
 	 */
 	function makeList( $titles ) {
 		$c = 0;
+		$list = array();
 		# add parent item
 		if ($this->showparent) {
 			$pn = '[[' . $this->ptitle->getPrefixedText() .'|'. $this->ptitle->getText() .']]';
@@ -458,7 +459,6 @@ class SubpageList3 {
 		}
 		# add descendents
 		$parlv = substr_count($this->ptitle->getPrefixedText(), '/');
-		$list = array();
 		foreach( $titles as $title ) {
 			$lv = substr_count($title, '/') - $parlv;
 			if ( $this->kidsonly != 1 || $lv < 2 ) {
