@@ -20,7 +20,7 @@ $wgHooks['ParserFirstCallInit'][] = 'efSubpageList3';
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Subpage List 3',
-	'version' => '1.1',
+	'version' => '1.2',
 	'descriptionmsg' => 'spl3-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:SubPageList3',
 	'author' => array(
@@ -30,7 +30,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	),
 );
 
-$dir = dirname(__FILE__) . '/';
+$dir = __DIR__ . '/';
 $wgExtensionMessagesFiles['SubPageList3'] = $dir . 'SubPageList3.i18n.php';
 
 /**
@@ -63,7 +63,6 @@ function efRenderSubpageList3( $input, $args, $parser ) {
  * SubPageList3 class
  */
 class SubpageList3 {
-
 	/**
 	 * @var Parser
 	 */
@@ -239,7 +238,7 @@ class SubpageList3 {
 			} elseif( $options['debug'] == 'false' || intval( $options['debug'] ) == 0 ) {
 				$this->debug = 0;
 			} else {
-				$this->error( wfMsg('spl3_debug','debug') );
+				$this->error( wfMessage('spl3_debug','debug')->text() );
 			}
 		}
 		if( isset( $options['sort'] ) ) {
@@ -248,7 +247,7 @@ class SubpageList3 {
 			} elseif( strtolower( $options['sort'] ) == 'desc' ) {
 				$this->order = 'desc';
 			} else {
-				$this->error( wfMsg('spl3_debug','sort') );
+				$this->error( wfMessage('spl3_debug','sort')->text() );
 			}
 		}
 		if( isset( $options['sortby'] ) ) {
@@ -260,7 +259,7 @@ class SubpageList3 {
 					$this->ordermethod = 'lastedit';
 					break;
 				default:
-					$this->error( wfMsg('spl3_debug','sortby') );
+					$this->error( wfMessage('spl3_debug','sortby')->text() );
 			}
 		}
 		if( isset( $options['liststyle'] ) ) {
@@ -278,7 +277,7 @@ class SubpageList3 {
 					$this->token = '&#160;· ';
 					break;
 				default:
-					$this->error( wfMsg('spl3_debug','liststyle') );
+					$this->error( wfMessage('spl3_debug','liststyle')->text() );
 			}
 		}
 		if( isset( $options['parent'] ) ) {
@@ -287,7 +286,7 @@ class SubpageList3 {
 			} elseif( is_string( $options['parent'] ) ) {
 				$this->parent = $options['parent'];
 			} else {
-				$this->error( wfMsg('spl3_debug','parent') );
+				$this->error( wfMessage('spl3_debug','parent')->text() );
 			}
 		}
 		if( isset( $options['showpath'] ) ) {
@@ -307,7 +306,7 @@ class SubpageList3 {
 					$this->showpath = 'full';
 					break;
 				default:
-					$this->error( wfMsg('spl3_debug','showpath') );
+					$this->error( wfMessage('spl3_debug','showpath')->text() );
 			}
 		}
 		if( isset( $options['kidsonly'] ) ) {
@@ -316,7 +315,7 @@ class SubpageList3 {
 			} elseif( $options['kidsonly'] == 'false' || $options['kidsonly'] == 'no' || intval( $options['kidsonly'] ) == 0 ) {
 				$this->kidsonly = 0;
 			} else {
-				$this->error( wfMsg('spl3_debug','kidsonly') );
+				$this->error( wfMessage('spl3_debug','kidsonly')->text() );
 			}
 		}
 		if( isset( $options['showparent'] ) ) {
@@ -325,7 +324,7 @@ class SubpageList3 {
 			} elseif( $options['showparent'] == 'false' || $options['showparent'] == 'no' || intval( $options['showparent'] ) == 0 ) {
 				$this->showparent = 0;
 			} else {
-				$this->error( wfMsg('spl3_debug','showparent') );
+				$this->error( wfMessage('spl3_debug','showparent')->text() );
 			}
 		}
 	}
@@ -343,7 +342,7 @@ class SubpageList3 {
 			$html = $this->parse( $list );
 		} else {
 			$plink = "[[" . $this->parent . "]]";
-			$out = "''" . wfMsg('spl3_nosubpages', $plink) . "''\n";
+			$out = "''" . wfMessage('spl3_nosubpages', $plink)->text() . "''\n";
 			$html = $this->parse( $out );
 		}
 		$html = $this->geterrors() . $html;
@@ -380,7 +379,7 @@ class SubpageList3 {
 				$this->namespace = $this->ptitle->getNsText();
 				$nsi = $this->ptitle->getNamespace();
 			} else {
-				$this->error( wfMsg('spl3_debug','parent') );
+				$this->error( wfMessage('spl3_debug','parent')->text() );
 				return null;
 			}
 		} else {
@@ -508,5 +507,4 @@ class SubpageList3 {
 		wfProfileOut( __METHOD__ );
 		return $output;
 	}
-
 }
