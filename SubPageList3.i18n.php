@@ -113,7 +113,7 @@ $messages['ca'] = array(
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
-	'spl3-desc' => 'Automaticky vytváří seznam podstránek stránky pomocí značky <tt>&lt;splist /&gt;</tt>',
+	'spl3-desc' => 'Automaticky vytváří seznam podstránek stránky pomocí značky <code>&lt;splist /&gt;</code>',
 	'spl3_debug' => 'Neznáma hodnota volby $1.',
 	'spl3_nosubpages' => '$1 nemá žádné zobrazitelné podstránky.',
 );
@@ -220,7 +220,7 @@ $messages['gl'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'spl3-desc' => 'E Lischt vu Untersyte zuen ere Syte mit em <tt><nowiki><splist /></nowiki></tt>-Tag automatisch aalege.',
+	'spl3-desc' => 'E Lischt vu Untersyte zuen ere Syte mit em <code><nowiki><splist /></nowiki></code>-Tag automatisch aalege.',
 	'spl3_debug' => 'Nit bekannter Wärt fir Option $1.',
 	'spl3_nosubpages' => '$1 het kei Untersyte.',
 );
@@ -473,7 +473,7 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
-	'spl3-desc' => 'Автоматічно створює список підсторінок сторінок за помочі значкы <tt>&lt;splist /&gt;</tt>',
+	'spl3-desc' => 'Автоматічно створює список підсторінок сторінок за помочі значкы <code>&lt;splist /&gt;</code>',
 	'spl3_debug' => 'Незнама годнота вольбы $1.',
 	'spl3_nosubpages' => '$1 не мать жадны зобразительны підсторінкы.',
 );
