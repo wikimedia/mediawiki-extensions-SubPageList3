@@ -64,7 +64,7 @@ $messages['arz'] = array(
 	'spl3_nosubpages' => '$1 لا تمتلك أى صفحات فرعية لوضعها فى قائمة.',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -372,7 +372,7 @@ $messages['ms'] = array(
 	'spl3_nosubpages' => '$1 tiada sublaman untuk disenaraikan.',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬) */
+/** Norwegian Bokmål (norsk (bokmål)‎) */
 $messages['nb'] = array(
 	'spl3-desc' => 'Lager automatisk en liste over undersidene til en side ved å bruke taggen <code><nowiki><splist /></nowiki></code>',
 	'spl3_debug' => 'Ukjent verdi for valg $1.',
@@ -388,7 +388,7 @@ $messages['nl'] = array(
 	'spl3_nosubpages' => "$1 heeft geen subpagina's.",
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Frokor
  */
 $messages['nn'] = array(
@@ -504,7 +504,7 @@ $messages['sl'] = array(
 	'spl3_nosubpages' => '$1 nima podstrani za navesti.',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  * @author Михајло Анђелковић
  */
@@ -514,7 +514,7 @@ $messages['sr-ec'] = array(
 	'spl3_nosubpages' => '$1 нема подстраница.',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -618,7 +618,7 @@ $messages['yi'] = array(
 	'spl3_nosubpages' => '$1 האט נישט קיין אונטערבלעטער.',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Gzdavidwong
  * @author Liangent
  * @author PhiLiP
@@ -629,7 +629,7 @@ $messages['zh-hans'] = array(
 	'spl3_nosubpages' => '$1没有子页面来显示',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Anakmalaysia
  * @author Liangent
  * @author Mark85296341
