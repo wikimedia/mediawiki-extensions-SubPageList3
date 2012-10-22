@@ -64,6 +64,15 @@ $messages['arz'] = array(
 	'spl3_nosubpages' => '$1 لا تمتلك أى صفحات فرعية لوضعها فى قائمة.',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'spl3-desc' => "Amiesta la etiqueta <code><nowiki><splist /></nowiki></code> que crea la llista de les páxines secundaries d'una páxina",
+	'spl3_debug' => 'Valor desconocíu pa la opción $1.',
+	'spl3_nosubpages' => "$1 nun tien páxines secundaries qu'amosar.",
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
@@ -372,7 +381,8 @@ $messages['ms'] = array(
 	'spl3_nosubpages' => '$1 tiada sublaman untuk disenaraikan.',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎) */
+/** Norwegian Bokmål (norsk (bokmål)‎)
+ */
 $messages['nb'] = array(
 	'spl3-desc' => 'Lager automatisk en liste over undersidene til en side ved å bruke taggen <code><nowiki><splist /></nowiki></code>',
 	'spl3_debug' => 'Ukjent verdi for valg $1.',
@@ -640,4 +650,3 @@ $messages['zh-hant'] = array(
 	'spl3_debug' => '不明的選項 $1 的設定值',
 	'spl3_nosubpages' => '$1 沒有子頁面來顯示',
 );
-
