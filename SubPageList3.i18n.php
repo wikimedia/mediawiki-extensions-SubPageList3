@@ -39,10 +39,11 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Purodha
+ * @author Shirayuki
  * @author The Evil IP address
  */
 $messages['qqq'] = array(
-	'spl3-desc' => '{{desc}}',
+	'spl3-desc' => '{{desc|name=Sub Page List 3|url=http://www.mediawiki.org/wiki/Extension:SubPageList3}}',
 );
 
 /** Arabic (العربية)
