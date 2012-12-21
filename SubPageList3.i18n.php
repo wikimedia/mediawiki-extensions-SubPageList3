@@ -325,7 +325,7 @@ $messages['km'] = array(
 $messages['ko'] = array(
 	'spl3-desc' => '문서의 하위 문서의 목록을 만드는 <code><nowiki><splist /></nowiki></code> 태그 추가',
 	'spl3_debug' => '$1 옵션에 대해 알 수 없는 값.',
-	'spl3_nosubpages' => '$1(은)는 목록에 하위 문서가 없습니다.',
+	'spl3_nosubpages' => '$1 문서는 목록에 하위 문서가 없습니다.',
 );
 
 /** Colognian (Ripoarisch)
