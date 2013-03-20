@@ -44,6 +44,12 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'spl3-desc' => '{{desc|name=Sub Page List 3|url=http://www.mediawiki.org/wiki/Extension:SubPageList3}}',
+	'spl3_debug' => 'Used as error message. Parameters:
+* $1 - any one of the following options:
+** debug, kidsonly, liststyle, parent, showparent, showpath, sort, sortby',
+	'spl3_nosubpages' => 'Parameters:
+* $1 - parent page title (with link)
+If $1 has 1 or more subpages, list of subpages is shown instead.',
 );
 
 /** Arabic (العربية)
