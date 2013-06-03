@@ -388,7 +388,7 @@ $messages['ms'] = array(
 	'spl3_nosubpages' => '$1 tiada sublaman untuk disenaraikan.',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  */
 $messages['nb'] = array(
 	'spl3-desc' => 'Lager automatisk en liste over undersidene til en side ved å bruke taggen <code><nowiki><splist /></nowiki></code>',
@@ -405,7 +405,7 @@ $messages['nl'] = array(
 	'spl3_nosubpages' => "$1 heeft geen subpagina's.",
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Frokor
  */
 $messages['nn'] = array(
