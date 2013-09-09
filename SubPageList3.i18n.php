@@ -134,6 +134,15 @@ $messages['cs'] = array(
 	'spl3_nosubpages' => '$1 nemá žádné zobrazitelné podstránky.',
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'spl3-desc' => "Yn ychwnegu'r tag <code><nowiki><splist /></nowiki></code> sy'n rhestri isdudalennau rhyw dudalen",
+	'spl3_debug' => "Gwerth anhysbys i'r opsiwn $1.",
+	'spl3_nosubpages' => "Nid oes isdudalennau i'r dudalen $1.",
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Raimond Spekking
