@@ -125,7 +125,7 @@ $messages['ca'] = array(
 	'spl3_nosubpages' => '$1 no té subpàgines a mostrar.',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Matěj Grabovský
  */
 $messages['cs'] = array(
