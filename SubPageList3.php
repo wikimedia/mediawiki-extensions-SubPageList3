@@ -20,7 +20,7 @@ $wgHooks['ParserFirstCallInit'][] = 'efSubpageList3';
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Subpage List 3',
-	'version' => '1.2',
+	'version' => '1.3.0',
 	'descriptionmsg' => 'spl3-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:SubPageList3',
 	'author' => array(
@@ -31,6 +31,7 @@ $wgExtensionCredits['parserhook'][] = array(
 );
 
 $dir = __DIR__ . '/';
+$wgMessagesDirs['SubPageList3'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SubPageList3'] = $dir . 'SubPageList3.i18n.php';
 
 /**
