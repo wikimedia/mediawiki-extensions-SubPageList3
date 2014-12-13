@@ -4,10 +4,11 @@
 			"Anakmalaysia",
 			"Liangent",
 			"Mark85296341",
-			"Wrightbus"
+			"Wrightbus",
+			"LNDDYL"
 		]
 	},
-	"spl3-desc": "使用標籤<code><nowiki><splist /></nowiki></code>自動創建子頁面列表",
+	"spl3-desc": "增加標籤 <code><nowiki><splist /></nowiki></code> 到建立子頁面清單",
 	"spl3_debug": "不明的選項 $1 的設定值",
 	"spl3_nosubpages": "$1 沒有子頁面來顯示"
 }
