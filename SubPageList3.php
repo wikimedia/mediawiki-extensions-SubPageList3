@@ -336,7 +336,6 @@ class SubpageList3 {
 	 * @private
 	 */
 	function render() {
-		wfProfileIn( __METHOD__ );
 		$pages = $this->getTitles();
 		if( $pages != null && count( $pages ) > 0 ) {
 			$list = $this->makeList( $pages );
@@ -347,7 +346,6 @@ class SubpageList3 {
 			$html = $this->parse( $out );
 		}
 		$html = $this->geterrors() . $html;
-		wfProfileOut( __METHOD__ );
 		return "<div class=\"subpagelist\">{$html}</div>";
 	}
 
@@ -357,8 +355,6 @@ class SubpageList3 {
 	 * @private
 	 */
 	function getTitles() {
-		wfProfileIn( __METHOD__ );
-
 		$dbr = wfGetDB( DB_SLAVE );
 
 		$conditions = array();
@@ -410,7 +406,7 @@ class SubpageList3 {
 				$titles[] = $title;
 			}
 		}
-		wfProfileOut( __METHOD__ );
+
 		return $titles;
 	}
 
@@ -503,9 +499,6 @@ class SubpageList3 {
 	 * @return string the parsed output
 	 */
 	function parse( $text ) {
-		wfProfileIn( __METHOD__ );
-		$output = $this->parser->recursiveTagParse( $text );
-		wfProfileOut( __METHOD__ );
-		return $output;
+		return $this->parser->recursiveTagParse( $text );
 	}
 }
