@@ -8,6 +8,7 @@
 		"Martin Schallnahs",
 		"Rob Church"
 	],
+	"license-name": "GPL-2.0+",
 	"MessagesDirs": {
 		"SubPageList3": [
 			"i18n"
