@@ -327,7 +327,7 @@ class SubPageList3 {
 	 * @private
 	 */
 	function getTitles() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$conditions = [];
 		$options = [];
