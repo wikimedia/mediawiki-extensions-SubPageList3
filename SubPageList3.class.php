@@ -122,7 +122,7 @@ class SubPageList3 {
 
 	/**
 	 * Constructor function of the class
-	 * @param $parser Parser the parser object
+	 * @param Parser $parser the parser object
 	 * @global $wgContLang
 	 * @see SubpageList
 	 * @private
@@ -135,7 +135,7 @@ class SubPageList3 {
 	}
 
 	/**
-	 * @param $parser Parser
+	 * @param Parser &$parser
 	 * @return bool
 	 */
 	public static function onParserFirstCallInit( &$parser ) {
@@ -146,9 +146,9 @@ class SubPageList3 {
 	/**
 	 * Function called by the Hook, returns the wiki text
 	 *
-	 * @param $input
-	 * @param $args
-	 * @param $parser Parser
+	 * @param string $input
+	 * @param array $args
+	 * @param Parser $parser
 	 * @return string
 	 */
 	public static function renderSubpageList3( $input, $args, $parser ) {
@@ -391,7 +391,7 @@ class SubPageList3 {
 	 *  - full: full, e.g. Mainpage/Entry/Sub
 	 *  - notparent: the path without the $parent item, e.g. Entry/Sub
 	 *  - no: no path, only the page title, e.g. Sub
-	 * @param $title Title the title of a page
+	 * @param Title $title the title of a page
 	 * @return string the prepared string
 	 * @see $showpath
 	 */
@@ -411,7 +411,7 @@ class SubPageList3 {
 
 	/**
 	 * create whole list using makeListItem
-	 * @param $titles Array all page titles
+	 * @param array $titles Array all page titles
 	 * @return string the whole list
 	 * @see SubPageList::makeListItem
 	 */
