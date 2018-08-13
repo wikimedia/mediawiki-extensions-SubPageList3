@@ -203,7 +203,7 @@ class SubPageList3 {
 			} elseif ( $options['debug'] == 'false' || intval( $options['debug'] ) == 0 ) {
 				$this->debug = 0;
 			} else {
-				$this->error( wfMessage( 'spl3_debug', 'debug' )->text() );
+				$this->error( wfMessage( 'spl3_debug', 'debug' )->escaped() );
 			}
 		}
 		if ( isset( $options['sort'] ) ) {
@@ -212,7 +212,7 @@ class SubPageList3 {
 			} elseif ( strtolower( $options['sort'] ) == 'desc' ) {
 				$this->order = 'desc';
 			} else {
-				$this->error( wfMessage( 'spl3_debug', 'sort' )->text() );
+				$this->error( wfMessage( 'spl3_debug', 'sort' )->escaped() );
 			}
 		}
 		if ( isset( $options['sortby'] ) ) {
@@ -224,7 +224,7 @@ class SubPageList3 {
 					$this->ordermethod = 'lastedit';
 					break;
 				default:
-					$this->error( wfMessage( 'spl3_debug', 'sortby' )->text() );
+					$this->error( wfMessage( 'spl3_debug', 'sortby' )->escaped() );
 			}
 		}
 		if ( isset( $options['liststyle'] ) ) {
@@ -242,7 +242,7 @@ class SubPageList3 {
 					$this->token = '&#160;· ';
 					break;
 				default:
-					$this->error( wfMessage( 'spl3_debug', 'liststyle' )->text() );
+					$this->error( wfMessage( 'spl3_debug', 'liststyle' )->escaped() );
 			}
 		}
 		if ( isset( $options['parent'] ) ) {
@@ -251,7 +251,7 @@ class SubPageList3 {
 			} elseif ( is_string( $options['parent'] ) ) {
 				$this->parent = $options['parent'];
 			} else {
-				$this->error( wfMessage( 'spl3_debug', 'parent' )->text() );
+				$this->error( wfMessage( 'spl3_debug', 'parent' )->escaped() );
 			}
 		}
 		if ( isset( $options['showpath'] ) ) {
@@ -271,7 +271,7 @@ class SubPageList3 {
 					$this->showpath = 'full';
 					break;
 				default:
-					$this->error( wfMessage( 'spl3_debug', 'showpath' )->text() );
+					$this->error( wfMessage( 'spl3_debug', 'showpath' )->escaped() );
 			}
 		}
 		if ( isset( $options['kidsonly'] ) ) {
@@ -284,7 +284,7 @@ class SubPageList3 {
 			) {
 				$this->kidsonly = 0;
 			} else {
-				$this->error( wfMessage( 'spl3_debug', 'kidsonly' )->text() );
+				$this->error( wfMessage( 'spl3_debug', 'kidsonly' )->escaped() );
 			}
 		}
 		if ( isset( $options['showparent'] ) ) {
@@ -297,7 +297,7 @@ class SubPageList3 {
 			) {
 				$this->showparent = 0;
 			} else {
-				$this->error( wfMessage( 'spl3_debug', 'showparent' )->text() );
+				$this->error( wfMessage( 'spl3_debug', 'showparent' )->escaped() );
 			}
 		}
 	}
@@ -351,7 +351,7 @@ class SubPageList3 {
 				$this->namespace = $this->ptitle->getNsText();
 				$nsi = $this->ptitle->getNamespace();
 			} else {
-				$this->error( wfMessage( 'spl3_debug', 'parent' )->text() );
+				$this->error( wfMessage( 'spl3_debug', 'parent' )->escaped() );
 				return null;
 			}
 		} else {
