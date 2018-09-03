@@ -420,7 +420,7 @@ class SubPageList3 {
 		$list = [];
 		# add parent item
 		if ( $this->showparent ) {
-			$pn = '[[' . $this->ptitle->getPrefixedText() .'|'. $this->ptitle->getText() .']]';
+			$pn = '[[' . $this->ptitle->getPrefixedText() . '|' . $this->ptitle->getText() . ']]';
 			if ( $this->mode != 'bar' ) {
 				$pn = $this->token . $pn;
 			}
