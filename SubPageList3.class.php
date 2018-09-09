@@ -123,7 +123,6 @@ class SubPageList3 {
 	/**
 	 * Constructor function of the class
 	 * @param Parser $parser the parser object
-	 * @global $wgContLang
 	 * @see SubpageList
 	 * @private
 	 */
