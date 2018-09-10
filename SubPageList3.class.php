@@ -124,9 +124,8 @@ class SubPageList3 {
 	 * Constructor function of the class
 	 * @param Parser $parser the parser object
 	 * @see SubpageList
-	 * @private
 	 */
-	function __construct( $parser ) {
+	private function __construct( $parser ) {
 		global $wgContLang;
 		$this->parser = $parser;
 		$this->title = $parser->getTitle();
@@ -164,9 +163,8 @@ class SubPageList3 {
 	 * @param string $message the errors message
 	 * @see $errors
 	 * @see $debug
-	 * @private
 	 */
-	function error( $message ) {
+	private function error( $message ) {
 		if ( $this->debug ) {
 			$this->errors[] = "<strong>Error [Subpage List 3]:</strong> $message";
 		}
@@ -175,9 +173,8 @@ class SubPageList3 {
 	/**
 	 * returns all errors as a string
 	 * @return string all errors separated by a newline
-	 * @private
 	 */
-	function geterrors() {
+	private function geterrors() {
 		return implode( "\n", $this->errors );
 	}
 
@@ -193,9 +190,8 @@ class SubPageList3 {
 	 * @see $showpath
 	 * @see $kidsonly
 	 * @see $showparent
-	 * @private
 	 */
-	function options( $options ) {
+	private function options( $options ) {
 		if ( isset( $options['debug'] ) ) {
 			if ( $options['debug'] == 'true' || intval( $options['debug'] ) == 1 ) {
 				$this->debug = 1;
@@ -304,9 +300,8 @@ class SubPageList3 {
 	/**
 	 * produce output using this class
 	 * @return string html output
-	 * @private
 	 */
-	function render() {
+	private function render() {
 		$pages = $this->getTitles();
 		if ( $pages != null && count( $pages ) > 0 ) {
 			$list = $this->makeList( $pages );
@@ -323,9 +318,8 @@ class SubPageList3 {
 	/**
 	 * return the page titles of the subpages in an array
 	 * @return array all titles
-	 * @private
 	 */
-	function getTitles() {
+	private function getTitles() {
 		$dbr = wfGetDB( DB_REPLICA );
 
 		$conditions = [];
@@ -394,7 +388,7 @@ class SubPageList3 {
 	 * @return string the prepared string
 	 * @see $showpath
 	 */
-	function makeListItem( $title ) {
+	private function makeListItem( $title ) {
 		switch ( $this->showpath ) {
 			case 'no':
 				$linktitle = substr( strrchr( $title->getText(), "/" ), 1 );
@@ -414,7 +408,7 @@ class SubPageList3 {
 	 * @return string the whole list
 	 * @see SubPageList::makeListItem
 	 */
-	function makeList( $titles ) {
+	private function makeList( $titles ) {
 		$c = 0;
 		$list = [];
 		# add parent item
@@ -472,7 +466,7 @@ class SubPageList3 {
 	 * @param string $text the content
 	 * @return string the parsed output
 	 */
-	function parse( $text ) {
+	private function parse( $text ) {
 		return $this->parser->recursiveTagParse( $text );
 	}
 }
