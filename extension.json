@@ -20,7 +20,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"SubPageList3": "SubPageList3.class.php"
+		"SubPageList3": "includes/SubPageList3.php"
 	},
 	"manifest_version": 1
 }
