@@ -29,11 +29,6 @@ class SubPageList3 {
 	private $token = '*';
 
 	/**
-	 * @var Language
-	 */
-	private $language;
-
-	/**
 	 * @var int error display on or off
 	 * @default 0 hide errors
 	 */
@@ -126,10 +121,8 @@ class SubPageList3 {
 	 * @see SubpageList
 	 */
 	private function __construct( $parser ) {
-		global $wgContLang;
 		$this->parser = $parser;
 		$this->title = $parser->getTitle();
-		$this->language = $wgContLang;
 	}
 
 	/**
