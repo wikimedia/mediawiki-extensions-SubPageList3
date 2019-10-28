@@ -9,6 +9,11 @@ class SubPageList3 {
 	private $parser;
 
 	/**
+	 * @var PPFrame|bool
+	 */
+	private $frame;
+
+	/**
 	 * @var Title
 	 */
 	private $title;
@@ -118,10 +123,12 @@ class SubPageList3 {
 	/**
 	 * Constructor function of the class
 	 * @param Parser $parser the parser object
+	 * @param PPFrame|bool $frame
 	 * @see SubpageList
 	 */
-	private function __construct( $parser ) {
+	private function __construct( Parser $parser, $frame = false ) {
 		$this->parser = $parser;
+		$this->frame = $frame;
 		$this->title = $parser->getTitle();
 	}
 
@@ -140,10 +147,11 @@ class SubPageList3 {
 	 * @param string $input
 	 * @param array $args
 	 * @param Parser $parser
+	 * @param PPFrame $frame
 	 * @return string
 	 */
-	public static function renderSubpageList3( $input, $args, $parser ) {
-		$list = new SubpageList3( $parser );
+	public static function renderSubpageList3( $input, array $args, Parser $parser, PPFrame $frame ) {
+		$list = new SubpageList3( $parser, $frame );
 		$list->options( $args );
 
 		# $parser->disableCache();
@@ -237,7 +245,7 @@ class SubPageList3 {
 			if ( intval( $options['parent'] ) == -1 ) {
 				$this->parent = -1;
 			} elseif ( is_string( $options['parent'] ) ) {
-				$this->parent = $options['parent'];
+				$this->parent = $this->parse( $options['parent'] );
 			} else {
 				$this->error( wfMessage( 'spl3_debug', 'parent' )->escaped() );
 			}
@@ -458,6 +466,6 @@ class SubPageList3 {
 	 * @return string the parsed output
 	 */
 	private function parse( $text ) {
-		return $this->parser->recursiveTagParse( $text );
+		return $this->parser->recursiveTagParse( $text, $this->frame );
 	}
 }
