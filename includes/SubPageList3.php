@@ -121,6 +121,14 @@ class SubPageList3 {
 	private $showparent = 0;
 
 	/**
+	 * Text to show when parent has no subpages to list
+	 * when null (by default) shows default message
+	 * @var string|null
+	 * @default null
+	 */
+	private $nosubpages = null;
+
+	/**
 	 * Constructor function of the class
 	 * @param Parser $parser the parser object
 	 * @param PPFrame|bool $frame
@@ -296,6 +304,8 @@ class SubPageList3 {
 				$this->error( wfMessage( 'spl3_debug', 'showparent' )->escaped() );
 			}
 		}
+
+		$this->nosubpages = $options['nosubpages'] ?? null;
 	}
 
 	/**
@@ -308,8 +318,12 @@ class SubPageList3 {
 			$list = $this->makeList( $pages );
 			$html = $this->parse( $list );
 		} else {
-			$plink = "[[" . $this->parent . "]]";
-			$out = "''" . wfMessage( 'spl3_nosubpages', $plink )->text() . "''\n";
+			if ( $this->nosubpages !== null ) {
+				$out = $this->nosubpages;
+			} else {
+				$plink = "[[" . $this->parent . "]]";
+				$out = "''" . wfMessage( 'spl3_nosubpages', $plink )->text() . "''\n";
+			}
 			$html = $this->parse( $out );
 		}
 		$html = $this->geterrors() . $html;
