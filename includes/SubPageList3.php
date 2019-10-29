@@ -314,6 +314,7 @@ class SubPageList3 {
 	 */
 	private function render() {
 		$pages = $this->getTitles();
+		$class = 'subpagelist';
 		if ( $pages != null && count( $pages ) > 0 ) {
 			$list = $this->makeList( $pages );
 			$html = $this->parse( $list );
@@ -325,9 +326,10 @@ class SubPageList3 {
 				$out = "''" . wfMessage( 'spl3_nosubpages', $plink )->text() . "''\n";
 			}
 			$html = $this->parse( $out );
+			$class .= ' subpagelist-empty';
 		}
 		$html = $this->geterrors() . $html;
-		return "<div class=\"subpagelist\">{$html}</div>";
+		return Html::rawElement( 'div', [ 'class' => $class ], $html );
 	}
 
 	/**
