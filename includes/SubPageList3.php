@@ -126,10 +126,10 @@ class SubPageList3 {
 	}
 
 	/**
-	 * @param Parser &$parser
+	 * @param Parser $parser
 	 * @return bool
 	 */
-	public static function onParserFirstCallInit( &$parser ) {
+	public static function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'splist', 'SubPageList3::renderSubpageList3' );
 		return true;
 	}
