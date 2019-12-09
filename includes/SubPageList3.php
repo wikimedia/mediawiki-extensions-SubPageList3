@@ -349,9 +349,7 @@ class SubPageList3 {
 		}
 
 		// don't let list cross namespaces
-		if ( strlen( $nsi ) > 0 ) {
-			$conditions['page_namespace'] = $nsi;
-		}
+		$conditions['page_namespace'] = $nsi;
 		$conditions['page_is_redirect'] = 0;
 		$conditions[] = 'page_title ' . $dbr->buildLike( $parent . '/', $dbr->anyString() );
 
