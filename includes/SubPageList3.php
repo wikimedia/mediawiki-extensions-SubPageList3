@@ -310,7 +310,7 @@ class SubPageList3 {
 
 	/**
 	 * return the page titles of the subpages in an array
-	 * @return array all titles
+	 * @return array|null all titles, null on failure
 	 */
 	private function getTitles() {
 		$dbr = wfGetDB( DB_REPLICA );
