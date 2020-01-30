@@ -413,6 +413,8 @@ class SubPageList3 {
 				break;
 			case 'full':
 				$linktitle = $title->getText();
+			default:
+				throw new LogicException( "Can not happen" );
 		}
 		return ' [[' . $title->getPrefixedText() . '|' . $linktitle . ']]';
 	}
