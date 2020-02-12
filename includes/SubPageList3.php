@@ -145,15 +145,6 @@ class SubPageList3 {
 	}
 
 	/**
-	 * @param Parser $parser
-	 * @return bool
-	 */
-	public static function onParserFirstCallInit( $parser ) {
-		$parser->setHook( 'splist', 'SubPageList3::renderSubpageList3' );
-		return true;
-	}
-
-	/**
 	 * Function called by the Hook, returns the wiki text
 	 *
 	 * @param string $input
