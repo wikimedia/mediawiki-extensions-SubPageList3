@@ -1,4 +1,8 @@
 <?php
+
+use Mediawiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
+
 /**
  * SubPageList3 class
  */
@@ -353,8 +357,15 @@ class SubPageList3 {
 			// note that non-existent pages may nevertheless have valid subpages
 			// on the other hand, not checking that the page exists can let input
 			// through which causes database errors
-			if ( $this->ptitle instanceof Title && $this->ptitle->exists()
-				&& $this->ptitle->userCan( 'read' )
+			if (
+				$this->ptitle instanceof Title &&
+				$this->ptitle->exists() &&
+				MediaWikiServices::getInstance()->getPermissionManager()->userCan(
+					'read',
+					$this->parser->getUser(),
+					$this->ptitle,
+					PermissionManager::RIGOR_SECURE
+				)
 			) {
 				$parent = $this->ptitle->getDBkey();
 				$this->parent = $parent;
