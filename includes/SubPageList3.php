@@ -332,17 +332,6 @@ class SubPageList3 {
 	 * @return array|null all titles, null on failure
 	 */
 	private function getTitles() {
-		$dbr = wfGetDB( DB_REPLICA );
-
-		$conditions = [];
-		$options = [];
-		$order = strtoupper( $this->order );
-
-		if ( $this->ordermethod == 'title' ) {
-			$options['ORDER BY'] = 'page_title ' . $order;
-		} elseif ( $this->ordermethod == 'lastedit' ) {
-			$options['ORDER BY'] = 'page_touched ' . $order;
-		}
 		if ( $this->parent !== -1 ) {
 			$this->ptitle = Title::newFromText( $this->parent );
 			// note that non-existent pages may nevertheless have valid subpages
@@ -374,15 +363,31 @@ class SubPageList3 {
 			$nsi = $this->title->getNamespace();
 		}
 
-		// don't let list cross namespaces
-		$conditions['page_namespace'] = $nsi;
-		$conditions['page_is_redirect'] = 0;
+		$dbr = wfGetDB( DB_REPLICA );
+		$options = [];
+		$order = strtoupper( $this->order );
+		if ( $this->ordermethod == 'title' ) {
+			$options['ORDER BY'] = 'page_title ' . $order;
+		} elseif ( $this->ordermethod == 'lastedit' ) {
+			$options['ORDER BY'] = 'page_touched ' . $order;
+		}
+
+		// don't let lists cross namespaces or include redirects
+		$conditions = [
+			'page_namespace' => $nsi,
+			'page_is_redirect' => 0
+		];
 		$conditions[] = 'page_title ' . $dbr->buildLike( $parent . '/', $dbr->anyString() );
 
-		$fields = [];
-		$fields[] = 'page_title';
-		$fields[] = 'page_namespace';
-		$res = $dbr->select( 'page', $fields, $conditions, __METHOD__, $options );
+		$fields = [ 'page_title', 'page_namespace' ];
+
+		$res = $dbr->select(
+			'page',
+			$fields,
+			$conditions,
+			__METHOD__,
+			$options
+		);
 
 		$titles = [];
 		foreach ( $res as $row ) {
