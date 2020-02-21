@@ -18,13 +18,11 @@
 		]
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"SubPageList3Hooks::onParserFirstCallInit"
-		]
+		"ParserFirstCallInit": "SubPageList3Hooks::onParserFirstCallInit"
 	},
 	"AutoloadClasses": {
 		"SubPageList3": "includes/SubPageList3.php",
 		"SubPageList3Hooks": "includes/SubPageList3Hooks.php"
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
