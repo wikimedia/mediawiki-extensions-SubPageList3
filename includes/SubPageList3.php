@@ -438,7 +438,8 @@ class SubPageList3 {
 			}
 			$ss = trim( $pn );
 			$list[] = $ss;
-			$c++; // flag for bar token to be added on next item
+			// flag for bar token to be added on next item
+			$c++;
 		}
 		# add descendents
 		$parlv = substr_count( $this->ptitle->getPrefixedText(), '/' );
@@ -459,7 +460,8 @@ class SubPageList3 {
 					}
 				}
 				$ss .= $this->makeListItem( $title );
-				$ss = trim( $ss );  // make sure we don't get any <pre></pre> tags
+				// make sure we don't get any <pre></pre> tags
+				$ss = trim( $ss );
 				$list[] = $ss;
 			}
 			$c++;
