@@ -197,21 +197,31 @@ class SubPageList3 {
 	 */
 	private function options( $options ) {
 		if ( isset( $options['debug'] ) ) {
-			if ( $options['debug'] == 'true' || intval( $options['debug'] ) == 1 ) {
-				$this->debug = 1;
-			} elseif ( $options['debug'] == 'false' || intval( $options['debug'] ) == 0 ) {
-				$this->debug = 0;
-			} else {
-				$this->error( wfMessage( 'spl3_debug', 'debug' )->escaped() );
+			switch ( $options['debug'] ) {
+				case 'true':
+				case 1:
+				case '1':
+					$this->debug = 1;
+					break;
+				case 'false':
+				case 0:
+				case '0':
+					$this->debug = 0;
+					break;
+				default:
+					$this->error( wfMessage( 'spl3_debug', 'debug' )->escaped() );
 			}
 		}
 		if ( isset( $options['sort'] ) ) {
-			if ( strtolower( $options['sort'] ) == 'asc' ) {
-				$this->order = 'asc';
-			} elseif ( strtolower( $options['sort'] ) == 'desc' ) {
-				$this->order = 'desc';
-			} else {
-				$this->error( wfMessage( 'spl3_debug', 'sort' )->escaped() );
+			switch ( strtolower( $options['sort'] ) ) {
+				case 'asc':
+					$this->order = 'asc';
+					break;
+				case 'desc':
+					$this->order = 'desc';
+					break;
+				default:
+					$this->error( wfMessage( 'spl3_debug', 'sort' )->escaped() );
 			}
 		}
 		if ( isset( $options['sortby'] ) ) {
