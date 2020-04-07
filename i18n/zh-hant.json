@@ -2,10 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
+			"LNDDYL",
 			"Liangent",
 			"Mark85296341",
-			"Wrightbus",
-			"LNDDYL"
+			"Wrightbus"
 		]
 	},
 	"spl3-desc": "增加標籤 <code><nowiki><splist /></nowiki></code> 到建立子頁面清單",
