@@ -196,19 +196,12 @@ class SubPageList3 {
 	 */
 	private function options( $options ) {
 		if ( isset( $options['debug'] ) ) {
-			switch ( $options['debug'] ) {
-				case 'true':
-				case 1:
-				case '1':
-					$this->debug = 1;
-					break;
-				case 'false':
-				case 0:
-				case '0':
-					$this->debug = 0;
-					break;
-				default:
-					$this->error( wfMessage( 'spl3_debug', 'debug' )->escaped() );
+			if ( in_array( $options['debug'], [ 'true', 1, '1' ], true ) ) {
+				$this->debug = 1;
+			} elseif ( in_array( $options['debug'], [ 'false', 0, '0' ], true ) ) {
+				$this->debug = 0;
+			} else {
+				$this->error( wfMessage( 'spl3_debug', 'debug' )->escaped() );
 			}
 		}
 		if ( isset( $options['sort'] ) ) {
@@ -263,23 +256,15 @@ class SubPageList3 {
 			}
 		}
 		if ( isset( $options['showpath'] ) ) {
-			switch ( strtolower( $options['showpath'] ) ) {
-				case 'no':
-				case '0':
-				case 'false':
-					$this->showpath = 'no';
-					break;
-				case 'notparent':
-					$this->showpath = 'notparent';
-					break;
-				case 'full':
-				case 'yes':
-				case '1':
-				case 'true':
-					$this->showpath = 'full';
-					break;
-				default:
-					$this->error( wfMessage( 'spl3_debug', 'showpath' )->escaped() );
+			$showPath = strtolower( $options['showpath'] );
+			if ( $showPath === 'no' || $showPath === '0' || $showPath === 'false' ) {
+				$this->showpath = 'no';
+			} elseif ( $showPath === 'notparent' ) {
+				$this->showpath = 'notparent';
+			} elseif ( in_array( $showPath, [ 'full', 'yes', '1', 'true' ], true ) ) {
+				$this->showpath = 'full';
+			} else {
+				$this->error( wfMessage( 'spl3_debug', 'showpath' )->escaped() );
 			}
 		}
 		if ( isset( $options['kidsonly'] ) ) {
