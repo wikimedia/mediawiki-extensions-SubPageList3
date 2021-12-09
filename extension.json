@@ -1,6 +1,6 @@
 {
 	"name": "Subpage List 3",
-	"version": "1.3.1",
+	"version": "1.4",
 	"descriptionmsg": "spl3-desc",
 	"url": "https://www.mediawiki.org/wiki/Extension:SubPageList3",
 	"author": [
@@ -22,6 +22,14 @@
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\SubPageList3\\": "includes/"
+	},
+	"ConfigRegistry": {
+		"SubPageList3": "GlobalVarConfig::newInstance"
+	},
+	"config": {
+		"SubPageListDescendantsLimit": {
+			"value": 200
+		}
 	},
 	"manifest_version": 2
 }

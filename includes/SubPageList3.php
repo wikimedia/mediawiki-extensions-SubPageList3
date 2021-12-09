@@ -139,6 +139,13 @@ class SubPageList3 {
 	private $nosubpages = null;
 
 	/**
+	 * Default limit of descendants
+	 * @var int
+	 * @default 200
+	 */
+	private const DESCENDANTS_LIMIT_DEFAULT = 200;
+
+	/**
 	 * Constructor function of the class
 	 * @param Parser $parser the parser object
 	 * @param PPFrame|bool $frame
@@ -432,6 +439,9 @@ class SubPageList3 {
 	 * @see SubPageList::makeListItem
 	 */
 	private function makeList( $titles ) {
+		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'SubPageList3' );
+		$descendantsLimitRaw = $config->get( 'SubPageListDescendantsLimit' );
+		$descendantsLimit = is_int( $descendantsLimitRaw ) ? $descendantsLimitRaw : self::DESCENDANTS_LIMIT_DEFAULT;
 		$c = 0;
 		$list = [];
 		# add parent item
@@ -445,7 +455,7 @@ class SubPageList3 {
 			// flag for bar token to be added on next item
 			$c++;
 		}
-		# add descendents
+		# add descendants
 		$parlv = substr_count( $this->ptitle->getPrefixedText(), '/' );
 		foreach ( $titles as $title ) {
 			$lv = substr_count( $title, '/' ) - $parlv;
@@ -469,7 +479,7 @@ class SubPageList3 {
 				$list[] = $ss;
 			}
 			$c++;
-			if ( $c > 200 ) {
+			if ( $c > $descendantsLimit ) {
 				break;
 			}
 		}
