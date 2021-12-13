@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Rotemliss",
-			"YaronSh"
+			"YaronSh",
+			"Amire80"
 		]
 	},
-	"spl3-desc": "יצירת רשימת דפי המשנה של דף באמצעות התגית <code><nowiki><splist /></nowiki></code>",
+	"spl3-desc": "יצירת רשימת דפי־המשנה של דף באמצעות התגית <code><nowiki><splist /></nowiki></code>",
 	"spl3_debug": "ערך לא ידוע עבור האפשרות $1.",
-	"spl3_nosubpages": "ל־$1 אין דפי משנה להצגה."
+	"spl3_nosubpages": "ל־$1 אין דפי־משנה להצגה."
 }
