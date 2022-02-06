@@ -1,6 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\SubPageList3;
+
+use Html;
+use LogicException;
 use Mediawiki\MediaWikiServices;
+use Parser;
+use PPFrame;
+use Title;
 
 /**
  * SubPageList3 class
@@ -58,7 +65,7 @@ class SubPageList3 {
 	private $order = 'asc';
 
 	/**
-	 * column thats used as order method
+	 * column that's used as order method
 	 * Can be:
 	 *  - title: alphabetic order of a page title
 	 *  - lastedit: Timestamp numeric order of the last edit of a page
@@ -411,6 +418,7 @@ class SubPageList3 {
 				break;
 			case 'full':
 				$linktitle = $title->getText();
+				break;
 			default:
 				throw new LogicException( "Can not happen" );
 		}

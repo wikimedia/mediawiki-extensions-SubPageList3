@@ -18,11 +18,10 @@
 		]
 	},
 	"Hooks": {
-		"ParserFirstCallInit": "SubPageList3Hooks::onParserFirstCallInit"
+		"ParserFirstCallInit": "MediaWiki\\Extension\\SubPageList3\\Hooks::onParserFirstCallInit"
 	},
-	"AutoloadClasses": {
-		"SubPageList3": "includes/SubPageList3.php",
-		"SubPageList3Hooks": "includes/SubPageList3Hooks.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\SubPageList3\\": "includes/"
 	},
 	"manifest_version": 2
 }

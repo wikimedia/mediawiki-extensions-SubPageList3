@@ -1,6 +1,10 @@
 <?php
 
-class SubPageList3Hooks {
+namespace MediaWiki\Extension\SubPageList3;
+
+use Parser;
+
+class Hooks {
 
 	/**
 	 * @param Parser $parser
