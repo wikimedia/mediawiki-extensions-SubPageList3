@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SubPageList3;
 
+use Config;
 use Html;
 use LogicException;
 use Mediawiki\MediaWikiServices;
@@ -145,16 +146,21 @@ class SubPageList3 {
 	 */
 	private const DESCENDANTS_LIMIT_DEFAULT = 200;
 
+	/** @var Config */
+	private $config;
+
 	/**
 	 * Constructor function of the class
 	 * @param Parser $parser the parser object
+	 * @param Config $config
 	 * @param PPFrame|bool $frame
 	 * @see SubpageList
 	 */
-	private function __construct( Parser $parser, $frame = false ) {
+	private function __construct( Parser $parser, Config $config, $frame = false ) {
 		$this->parser = $parser;
 		$this->frame = $frame;
 		$this->title = $parser->getTitle();
+		$this->config = $config;
 	}
 
 	/**
@@ -167,7 +173,8 @@ class SubPageList3 {
 	 * @return string
 	 */
 	public static function renderSubpageList3( $input, array $args, Parser $parser, PPFrame $frame ) {
-		$list = new SubpageList3( $parser, $frame );
+		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'SubPageList3' );
+		$list = new SubpageList3( $parser, $config, $frame );
 		$list->options( $args );
 
 		# $parser->disableCache();
@@ -439,8 +446,7 @@ class SubPageList3 {
 	 * @see SubPageList::makeListItem
 	 */
 	private function makeList( $titles ) {
-		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'SubPageList3' );
-		$descendantsLimitRaw = $config->get( 'SubPageListDescendantsLimit' );
+		$descendantsLimitRaw = $this->config->get( 'SubPageListDescendantsLimit' );
 		$descendantsLimit = is_int( $descendantsLimitRaw ) ? $descendantsLimitRaw : self::DESCENDANTS_LIMIT_DEFAULT;
 		$c = 0;
 		$list = [];
