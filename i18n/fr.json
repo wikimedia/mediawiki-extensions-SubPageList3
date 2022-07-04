@@ -3,10 +3,11 @@
 		"authors": [
 			"Crochet.david",
 			"Grondin",
-			"Urhixidur"
+			"Urhixidur",
+			"Verdy p"
 		]
 	},
-	"spl3-desc": "Crée automatiquement une liste de sous-pages d’une page utilisant la balise <code><nowiki><splist /></nowiki></code>",
-	"spl3_debug": "Valeur pour l’option $1 inconnue.",
-	"spl3_nosubpages": "$1 n’a pas de sous-pages à énumérer."
+	"spl3-desc": "Ajoute la balise <code><nowiki><splist /></nowiki></code> qui génère une liste des sous-pages d’une page donnée.",
+	"spl3_debug": "Valeur inconnue pour l’option $1.",
+	"spl3_nosubpages": "$1 n’a aucune sous-page à lister."
 }
