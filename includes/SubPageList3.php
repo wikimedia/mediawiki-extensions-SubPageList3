@@ -420,6 +420,7 @@ class SubPageList3 {
 				break;
 			case 'full':
 				$linktitle = $title->getText();
+				break;
 			default:
 				throw new LogicException( "Can not happen" );
 		}
