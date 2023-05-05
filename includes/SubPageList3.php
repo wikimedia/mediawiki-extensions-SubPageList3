@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\SubPageList3;
 use Config;
 use Html;
 use LogicException;
-use Mediawiki\MediaWikiServices;
+use MediaWiki\MediaWikiServices;
 use Parser;
 use PPFrame;
 use Title;
