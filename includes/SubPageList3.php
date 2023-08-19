@@ -6,9 +6,9 @@ use Config;
 use Html;
 use LogicException;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use Parser;
 use PPFrame;
-use Title;
 
 /**
  * SubPageList3 class
