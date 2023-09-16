@@ -18,7 +18,12 @@
 		]
 	},
 	"Hooks": {
-		"ParserFirstCallInit": "MediaWiki\\Extension\\SubPageList3\\Hooks::onParserFirstCallInit"
+		"ParserFirstCallInit": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\SubPageList3\\Hooks"
+		}
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\SubPageList3\\": "includes/"
