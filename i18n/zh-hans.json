@@ -4,10 +4,11 @@
 			"Gzdavidwong",
 			"Liangent",
 			"PhiLiP",
-			"SunAfterRain"
+			"SunAfterRain",
+			"LittlePaw365"
 		]
 	},
 	"spl3-desc": "使用标签<code><nowiki><splist /></nowiki></code>自动创建子页面列表",
-	"spl3_debug": "未知的选项$1的数值",
+	"spl3_debug": "选项$1有未知值",
 	"spl3_nosubpages": "$1 没有子页面可以显示"
 }
