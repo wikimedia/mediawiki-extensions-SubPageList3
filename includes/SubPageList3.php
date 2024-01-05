@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\SubPageList3;
 
-use Config;
-use Html;
 use LogicException;
+use MediaWiki\Config\Config;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use Parser;
