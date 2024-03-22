@@ -6,7 +6,7 @@
 			"YaronSh"
 		]
 	},
-	"spl3-desc": "יצירת רשימת דפי־המשנה של דף באמצעות התגית <code><nowiki><splist /></nowiki></code>",
+	"spl3-desc": "הוספת התג <code dir=\"ltr\">&lt;splist /&gt;</code> ליצירת דפי־משנה של דף",
 	"spl3_debug": "ערך לא ידוע עבור האפשרות $1.",
 	"spl3_nosubpages": "ל־$1 אין דפי־משנה להצגה."
 }

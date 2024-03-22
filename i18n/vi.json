@@ -4,7 +4,7 @@
 			"Vinhtantran"
 		]
 	},
-	"spl3-desc": "Tự động tạo danh sách các trang con của một trang nào đó bằng cách sử dụng thẻ <code><nowiki><splist /></nowiki></code>",
+	"spl3-desc": "Tự động tạo danh sách các trang con của một trang nào đó bằng cách sử dụng thẻ <code>&lt;splist /&gt;</code>",
 	"spl3_debug": "Giá trị không rõ đối với tùy chọn $1.",
 	"spl3_nosubpages": "$1 không có trang con nào cả."
 }
