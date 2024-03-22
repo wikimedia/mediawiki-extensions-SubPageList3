@@ -375,7 +375,7 @@ class SubPageList3 {
 			$nsi = $this->title->getNamespace();
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$options = [];
 		$order = strtoupper( $this->order );
 		if ( $this->ordermethod == 'title' ) {
