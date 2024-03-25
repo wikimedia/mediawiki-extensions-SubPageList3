@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Borichèt",
 			"Dragonòt"
 		]
 	},
-	"spl3-desc": "A crea automaticament na lista dle sotpàgine ëd na pàgina an dovrand ël tag <code>&lt;splist /&gt;</code>",
+	"spl3-desc": "A gionta la tichëtta <code>&lt;splist /&gt;</code> ch'a crea na lista dle sot-pàgine ëd na pàgina",
 	"spl3_debug": "Valor pa conossù për l'opsion $1.",
 	"spl3_nosubpages": "$1 a l'ha pa ëd sotpàgine da listé."
 }

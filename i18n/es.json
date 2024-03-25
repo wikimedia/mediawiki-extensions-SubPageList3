@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Crazymadlover",
+			"Eulalio",
 			"Fitoschido"
 		]
 	},
-	"spl3-desc": "Crea automáticamente una lista de las subpáginas de una página usando la etiqueta <code>&lt;splist /&gt;</code>",
+	"spl3-desc": "Añade la etiqueta <code>&lt;splist /&gt;</code> que crea una lista de subpáginas de una página",
 	"spl3_debug": "Valor desconocido para opción $1.",
 	"spl3_nosubpages": "$1 no tiene subpáginas que listar."
 }
