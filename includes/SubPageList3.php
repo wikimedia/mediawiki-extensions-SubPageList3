@@ -9,6 +9,8 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use Parser;
 use PPFrame;
+use Wikimedia\Rdbms\IExpression;
+use Wikimedia\Rdbms\LikeValue;
 
 /**
  * SubPageList3 class
@@ -376,30 +378,25 @@ class SubPageList3 {
 		}
 
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-		$options = [];
+		$queryBuilder = $dbr->newSelectQueryBuilder()
+			->select( [ 'page_namespace', 'page_title' ] )
+			->from( 'page' )
+			// don't let lists cross namespaces or include redirects
+			->where( [
+				'page_namespace' => $nsi,
+				'page_is_redirect' => 0,
+				$dbr->expr( 'page_title', IExpression::LIKE, new LikeValue( $parent . '/', $dbr->anyString() ) ),
+			] )
+			->caller( __METHOD__ );
+
 		$order = strtoupper( $this->order );
 		if ( $this->ordermethod == 'title' ) {
-			$options['ORDER BY'] = 'page_title ' . $order;
+			$queryBuilder->orderBy( 'page_title', $order );
 		} elseif ( $this->ordermethod == 'lastedit' ) {
-			$options['ORDER BY'] = 'page_touched ' . $order;
+			$queryBuilder->orderBy( 'page_touched', $order );
 		}
 
-		// don't let lists cross namespaces or include redirects
-		$conditions = [
-			'page_namespace' => $nsi,
-			'page_is_redirect' => 0
-		];
-		$conditions[] = 'page_title ' . $dbr->buildLike( $parent . '/', $dbr->anyString() );
-
-		$fields = [ 'page_title', 'page_namespace' ];
-
-		$res = $dbr->select(
-			'page',
-			$fields,
-			$conditions,
-			__METHOD__,
-			$options
-		);
+		$res = $queryBuilder->fetchResultSet();
 
 		$titles = [];
 		foreach ( $res as $row ) {
