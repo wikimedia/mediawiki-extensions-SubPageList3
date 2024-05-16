@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"No Sleep till Krupki"
+			"No Sleep till Krupki",
+			"Chadyka"
 		]
 	},
-	"spl3-desc": "Дадае тэг <nowiki><splist /></nowiki> які стварае спіс падстаронак старонкі",
+	"spl3-desc": "Дадае тэг <code>&lt;splist /&gt;</code> які стварае спіс падстаронак старонкі",
 	"spl3_debug": "Невядомае значэнне парамэтра $1.",
 	"spl3_nosubpages": "$1 не мае падстаронак для пераліку."
 }
