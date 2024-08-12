@@ -3,7 +3,8 @@
 		"authors": [
 			"Aotake",
 			"Mizusumashi",
-			"Shirayuki"
+			"Shirayuki",
+			"春春眠眠"
 		]
 	},
 	"spl3-desc": "<code>&lt;splist /&gt;</code>タグを使っているページの下位ページ一覧を自動生成する",
