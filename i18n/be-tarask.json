@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"EugeneZelenko",
-			"Jim-by"
+			"Jim-by",
+			"Renessaince"
 		]
 	},
 	"spl3-desc": "Аўтаматычна стварае сьпіс падстаронак з дапамогай тэга <code>&lt;splist /&gt;</code>",
