@@ -7,8 +7,8 @@ use MediaWiki\Config\Config;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\PPFrame;
 use MediaWiki\Title\Title;
-use PPFrame;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\LikeValue;
 
