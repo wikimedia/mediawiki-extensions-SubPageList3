@@ -4,7 +4,7 @@
 			"Michaello"
 		]
 	},
-	"spl3-desc": "Automatski pravi spisak podstrana neke strane preko taga <code>&lt;splist /&gt;</code>",
+	"spl3-desc": "Dodaje tag <code>&lt;splist /&gt;</code> koji pravi spisak podstranica stranice",
 	"spl3_debug": "Nepoznata vrednost za mogućnost $1.",
 	"spl3_nosubpages": "$1 nema podstranica."
 }
