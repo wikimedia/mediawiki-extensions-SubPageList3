@@ -48,7 +48,6 @@ class SubPageList3 {
 
 	/**
 	 * @var int error display on or off
-	 * @default 0 hide errors
 	 */
 	private $debug = 0;
 
@@ -84,7 +83,6 @@ class SubPageList3 {
 	 *  - ordered: OL list as output
 	 *  - bar: uses · as a delimiter producing a horizontal bar menu
 	 * @var string mode of output
-	 * @default unordered
 	 */
 	private $mode = 'unordered';
 
@@ -95,7 +93,6 @@ class SubPageList3 {
 	 *  - string: title of the specific title
 	 * e.g. if you are in Mainpage/ it will list all subpages of Mainpage/
 	 * @var mixed parent of listed pages
-	 * @default -1 current
 	 */
 	private $parent = -1;
 
@@ -106,7 +103,6 @@ class SubPageList3 {
 	 *  - notparent: the path without the $parent item, e.g. Entry/Sub
 	 *  - no: no path, only the page title, e.g. Sub
 	 * @var string style of the path (title)
-	 * @default normal
 	 * @see $parent
 	 */
 	private $showpath = 'no';
@@ -117,7 +113,6 @@ class SubPageList3 {
 	 *  - 0 / no / false
 	 *  - 1 / yes / true
 	 * @var mixed show one sublevel only
-	 * @default 0
 	 * @see $parent
 	 */
 	private $kidsonly = 0;
@@ -128,7 +123,6 @@ class SubPageList3 {
 	 *  - 0 / no / false
 	 *  - 1 / yes / true
 	 * @var mixed show one sublevel only
-	 * @default 0
 	 * @see $parent
 	 */
 	private $showparent = 0;
@@ -137,14 +131,12 @@ class SubPageList3 {
 	 * Text to show when parent has no subpages to list
 	 * when null (by default) shows default message
 	 * @var string|null
-	 * @default null
 	 */
 	private $nosubpages = null;
 
 	/**
 	 * Default limit of descendants
 	 * @var int
-	 * @default 200
 	 */
 	private const DESCENDANTS_LIMIT_DEFAULT = 200;
 
