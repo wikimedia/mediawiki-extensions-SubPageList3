@@ -29,7 +29,7 @@
 		"MediaWiki\\Extension\\SubPageList3\\": "includes/"
 	},
 	"ConfigRegistry": {
-		"SubPageList3": "GlobalVarConfig::newInstance"
+		"SubPageList3": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"config": {
 		"SubPageListDescendantsLimit": {
