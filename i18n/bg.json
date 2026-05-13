@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"DCLXVI"
+			"DCLXVI",
+			"StanProg"
 		]
 	},
 	"spl3-desc": "Автоматично създава списък на подстраниците с помощта на етикета <code>&lt;splist /&gt;</code>",
