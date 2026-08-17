@@ -1,0 +1,50 @@
+!! options
+version=2
+parsoid-compatible
+!! end
+
+# Force the test runner to ensure the extension is loaded
+!! hooks
+splist
+!! endhooks
+
+!! test
+Basic test
+!! options
+parsoid=wt2html,wt2wt
+!! wikitext
+<splist />
+!! html/php
+<div class="subpagelist subpagelist-empty"><i><a class="mw-selflink selflink">Parser_test</a> has no subpages to list.</i>
+</div>
+!! html/parsoid
+<div class="subpagelist subpagelist-empty" data-mw='{"name":"splist","attrs":{}}' typeof="mw:Extension/splist"><i><a class="mw-selflink selflink" href="./Parser_test" rel="mw:WikiLink">Parser_test</a> has no subpages to list.</i></div>
+!! end
+
+!! test
+With templated parent page
+!! options
+parsoid=wt2html
+subpage
+!! wikitext
+<splist parent={{ROOTPAGENAME}} showparent=yes />
+!! html/php
+<div class="subpagelist subpagelist-empty"><i><a class="mw-selflink selflink">Parser test</a> has no subpages to list.</i>
+</div>
+!! html/parsoid
+<div class="subpagelist subpagelist-empty" data-mw='{"name":"splist","attrs":{"parent":"{{ROOTPAGENAME}}","showparent":"yes"}}' typeof="mw:Extension/splist"><i><a class="mw-selflink selflink" href="./Parser_test" rel="mw:WikiLink">Parser test</a> has no subpages to list.</i></div>
+!! end
+
+!! test
+With parent name and all other options
+!! options
+parsoid=wt2html
+subpage
+!! wikitext
+<splist parent=Main showparent=yes sort=desc sortby=title liststyle=ordered showpath=no kidsonly=no debug=0 />
+!! html/php
+<div class="subpagelist subpagelist-empty"><i><a href="/index.php?title=Main&amp;action=edit&amp;redlink=1" class="new" title="Main (page does not exist)">Main</a> has no subpages to list.</i>
+</div>
+!! html/parsoid
+<div class="subpagelist subpagelist-empty" data-mw='{"name":"splist","attrs":{"parent":"Main","showparent":"yes","sort":"desc","sortby":"title","liststyle":"ordered","showpath":"no","kidsonly":"no","debug":"0"}}' typeof="mw:Extension/splist"><i><a class="new" data-mw-i18n='{"title":{"lang":"x-page","key":"red-link-title","params":["Main"]}}' href="./Main?action=edit&amp;redlink=1" rel="mw:WikiLink" title="Main" typeof="mw:LocalizedAttrs">Main</a> has no subpages to list.</i></div>
+!! end

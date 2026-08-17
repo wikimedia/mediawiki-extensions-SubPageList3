@@ -36,5 +36,19 @@
 			"value": 200
 		}
 	},
+	"ParsoidModules": [
+		{
+			"name": "SubPageList3",
+			"tags": [
+				{
+					"name": "splist",
+					"handler": "MediaWiki\\Extension\\SubPageList3\\ParsoidTagHandler",
+					"options": {
+						"outputHasCoreMwDomSpecMarkup": true
+					}
+				}
+			]
+		}
+	],
 	"manifest_version": 2
 }

@@ -9,6 +9,9 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
 use MediaWiki\Title\Title;
+use Wikimedia\Parsoid\DOM\DocumentFragment;
+use Wikimedia\Parsoid\Ext\DOMUtils;
+use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\LikeValue;
 
@@ -17,64 +20,39 @@ use Wikimedia\Rdbms\LikeValue;
  */
 class SubPageList3 {
 	/**
-	 * @var Parser
+	 * Default limit of descendants
 	 */
-	private $parser;
+	private const DESCENDANTS_LIMIT_DEFAULT = 200;
 
+	/** Is this being processed with Parsoid? */
+	private bool $withParsoid = false;
+	private Parser|ParsoidExtensionAPI $parser;
+	private PPFrame|bool $frame;
+	private Title $title;
+	private Title $ptitle;
+	private string $namespace = '';
 	/**
-	 * @var PPFrame|bool
+	 * token object
 	 */
-	private $frame;
-
-	/**
-	 * @var Title
-	 */
-	private $title;
-
-	/**
-	 * @var Title
-	 */
-	private $ptitle;
-
-	/**
-	 * @var string
-	 */
-	private $namespace = '';
-
-	/**
-	 * @var string token object
-	 */
-	private $token = '*';
-
-	/**
-	 * @var int error display on or off
-	 */
-	private $debug = 0;
-
-	/**
-	 * contain the error messages
-	 * @var array contain the errors messages
-	 */
-	private $errors = [];
-
+	private string $token = '*';
+	private int $debug = 0;
+	private array $errors = [];
 	/**
 	 * order type
 	 * Can be:
-	 *  - asc
-	 *  - desc
-	 * @var string order type
+	 * - asc
+	 * - desc
 	 */
-	private $order = 'asc';
+	private string $order = 'asc';
 
 	/**
 	 * column that's used as order method
 	 * Can be:
 	 *  - title: alphabetic order of a page title
 	 *  - lastedit: Timestamp numeric order of the last edit of a page
-	 * @var string order method
 	 * @private
 	 */
-	private $ordermethod = 'title';
+	private string $ordermethod = 'title';
 
 	/**
 	 * mode of the output
@@ -82,9 +60,8 @@ class SubPageList3 {
 	 *  - unordered: UL list as output
 	 *  - ordered: OL list as output
 	 *  - bar: uses · as a delimiter producing a horizontal bar menu
-	 * @var string mode of output
 	 */
-	private $mode = 'unordered';
+	private string $mode = 'unordered';
 
 	/**
 	 * parent of the listed pages
@@ -130,31 +107,30 @@ class SubPageList3 {
 	/**
 	 * Text to show when parent has no subpages to list
 	 * when null (by default) shows default message
-	 * @var string|null
 	 */
-	private $nosubpages = null;
-
-	/**
-	 * Default limit of descendants
-	 * @var int
-	 */
-	private const DESCENDANTS_LIMIT_DEFAULT = 200;
-
-	/** @var Config */
-	private $config;
+	private ?string $nosubpages = null;
+	private Config $config;
 
 	/**
 	 * Constructor function of the class
-	 * @param Parser $parser the parser object
+	 * @param Parser|ParsoidExtensionAPI $parser the parser object
 	 * @param Config $config
 	 * @param PPFrame|bool $frame
 	 * @see SubpageList
 	 */
-	private function __construct( Parser $parser, Config $config, $frame = false ) {
+	private function __construct(
+		Parser|ParsoidExtensionAPI $parser, Config $config, PPFrame|bool $frame = false
+	) {
 		$this->parser = $parser;
 		$this->frame = $frame;
-		$this->title = $parser->getTitle();
 		$this->config = $config;
+		if ( $parser instanceof ParsoidExtensionAPI ) {
+			$this->withParsoid = true;
+			$this->title = Title::newFromLinkTarget( $parser->getPageConfig()->getLinkTarget() );
+		} else {
+			$this->withParsoid = false;
+			$this->title = $parser->getTitle();
+		}
 	}
 
 	/**
@@ -162,13 +138,15 @@ class SubPageList3 {
 	 *
 	 * @param string $input
 	 * @param array $args
-	 * @param Parser $parser
-	 * @param PPFrame $frame
-	 * @return string
+	 * @param Parser|ParsoidExtensionAPI $parser
+	 * @param ?PPFrame $frame
+	 * @return string|DocumentFragment
 	 */
-	public static function renderSubpageList3( $input, array $args, Parser $parser, PPFrame $frame ) {
+	public static function renderSubpageList3(
+		$input, array $args, Parser|ParsoidExtensionAPI $parser, ?PPFrame $frame = null
+	) {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'SubPageList3' );
-		$list = new SubpageList3( $parser, $config, $frame );
+		$list = new SubpageList3( $parser, $config, $frame ?? false );
 		$list->options( $args );
 
 		# $parser->disableCache();
@@ -266,6 +244,12 @@ class SubPageList3 {
 				$this->parent = -1;
 			} elseif ( is_string( $options['parent'] ) ) {
 				$this->parent = $this->parse( $options['parent'] );
+				if ( $this->withParsoid ) {
+					// a41be6b added the ability to use wikitext like {{{1}}}
+					// or {{ROOTPAGENAME}} to set parent title string.
+					// So, convert the fragment to a text string.
+					$this->parent = $this->parent->textContent;
+				}
 			} else {
 				$this->error( wfMessage( 'spl3_debug', 'parent' )->escaped() );
 			}
@@ -321,7 +305,7 @@ class SubPageList3 {
 		$class = 'subpagelist';
 		if ( $pages != null && count( $pages ) > 0 ) {
 			$list = $this->makeList( $pages );
-			$html = $this->parse( $list );
+			$htmlOrDom = $this->parse( $list );
 		} else {
 			if ( $this->nosubpages !== null ) {
 				$out = $this->nosubpages;
@@ -329,11 +313,21 @@ class SubPageList3 {
 				$plink = "[[" . $this->parent . "]]";
 				$out = "''" . wfMessage( 'spl3_nosubpages', $plink )->text() . "''\n";
 			}
-			$html = $this->parse( $out );
+			$htmlOrDom = $this->parse( $out );
 			$class .= ' subpagelist-empty';
 		}
-		$html = $this->geterrors() . $html;
-		return Html::rawElement( 'div', [ 'class' => $class ], $html );
+		$errorHTML = $this->geterrors();
+		if ( $this->withParsoid ) {
+			$frag = $htmlOrDom;
+			$div = $frag->ownerDocument->createElement( 'div' );
+			$div->setAttribute( 'class', $class );
+			DOMUtils::migrateChildren( $this->parser->htmlToDOM( $errorHTML ), $div );
+			DOMUtils::migrateChildren( $frag, $div );
+			$frag->insertBefore( $div, $frag->firstChild );
+			return $frag;
+		} else {
+			return Html::rawElement( 'div', [ 'class' => $class ], $errorHTML . $htmlOrDom );
+		}
 	}
 
 	/**
@@ -343,8 +337,13 @@ class SubPageList3 {
 	private function getTitles() {
 		if ( $this->parent !== -1 ) {
 			$this->ptitle = Title::newFromText( $this->parent );
-			$user = MediaWikiServices::getInstance()->getUserFactory()
-				->newFromUserIdentity( $this->parser->getUserIdentity() );
+			$userFactory = MediaWikiServices::getInstance()->getUserFactory();
+			// FIXME: Parsoid will excessively restrict access to some pages even if the user
+			// has the rights. Parsoid currently doesn't have a mechanism to unredact
+			// information during read view rendering in the OutputTransformPipeline.
+			// Once implemented, this code here will likely change.
+			$user = $this->withParsoid ? $userFactory->newAnonymous() :
+					$userFactory->newFromUserIdentity( $this->parser->getUserIdentity() );
 			// note that non-existent pages may nevertheless have valid subpages
 			// on the other hand, not checking that the page exists can let input
 			// through which causes database errors
@@ -493,10 +492,18 @@ class SubPageList3 {
 
 	/**
 	 * Wrapper function parse, call the other functions
-	 * @param string $text the content
-	 * @return string the parsed output
+	 * @return string|DocumentFragment the parsed output
 	 */
-	private function parse( $text ) {
-		return $this->parser->recursiveTagParse( $text, $this->frame );
+	private function parse( string $text ) {
+		if ( $this->withParsoid ) {
+			$opts = [
+				'processInNewFrame' => true,
+				'clearDSROffets' => true,
+				'parseOpts' => [ 'context' => 'inline' ]
+			];
+			return $this->parser->wikitextToDOM( $text, $opts, true );
+		} else {
+			return $this->parser->recursiveTagParse( $text, $this->frame );
+		}
 	}
 }
