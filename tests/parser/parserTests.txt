@@ -48,3 +48,44 @@ subpage
 !! html/parsoid
 <div class="subpagelist subpagelist-empty" data-mw='{"name":"splist","attrs":{"parent":"Main","showparent":"yes","sort":"desc","sortby":"title","liststyle":"ordered","showpath":"no","kidsonly":"no","debug":"0"}}' typeof="mw:Extension/splist"><i><a class="new" data-mw-i18n='{"title":{"lang":"x-page","key":"red-link-title","params":["Main"]}}' href="./Main?action=edit&amp;redlink=1" rel="mw:WikiLink" title="Main" typeof="mw:LocalizedAttrs">Main</a> has no subpages to list.</i></div>
 !! end
+
+!! article
+User:Test
+!! text
+test
+!! endarticle
+
+!! article
+User:Test/123
+!! text
+123
+!! endarticle
+
+!! article
+User:Test/123/456
+!! text
+456
+!! endarticle
+
+!! test
+Basic test with subpages
+!! options
+parsoid=wt2html
+subpage
+!! wikitext
+<splist parent="User:Test" />
+!! html/php
+<div class="subpagelist">
+<ul><li><a href="/wiki/User:Test/123" title="User:Test/123">123</a>
+<ul><li><a href="/wiki/User:Test/123/456" title="User:Test/123/456">456</a></li></ul></li></ul></div>
+!! html/parsoid
+<div class="subpagelist" data-mw='{"name":"splist","attrs":{"parent":"User:Test"}}' typeof="mw:Extension/splist">
+<ul>
+<li><a href="./User:Test/123" rel="mw:WikiLink" title="User:Test/123">123</a>
+<ul>
+<li><a href="./User:Test/123/456" rel="mw:WikiLink" title="User:Test/123/456">456</a></li>
+</ul>
+</li>
+</ul>
+</div>
+!! end
