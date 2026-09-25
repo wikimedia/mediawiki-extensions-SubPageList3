@@ -30,7 +30,6 @@ class SubPageList3 {
 	private PPFrame|bool $frame;
 	private Title $title;
 	private Title $ptitle;
-	private string $namespace = '';
 	/**
 	 * token object
 	 */
@@ -354,7 +353,6 @@ class SubPageList3 {
 			) {
 				$parent = $this->ptitle->getDBkey();
 				$this->parent = $parent;
-				$this->namespace = $this->ptitle->getNsText();
 				$nsi = $this->ptitle->getNamespace();
 			} else {
 				$this->error( wfMessage( 'spl3_debug', 'parent' )->escaped() );
@@ -364,7 +362,6 @@ class SubPageList3 {
 			$this->ptitle = $this->title;
 			$parent = $this->title->getDBkey();
 			$this->parent = $parent;
-			$this->namespace = $this->title->getNsText();
 			$nsi = $this->title->getNamespace();
 		}
 
