@@ -145,7 +145,7 @@ class SubPageList3 {
 		$input, array $args, Parser|ParsoidExtensionAPI $parser, ?PPFrame $frame = null
 	) {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'SubPageList3' );
-		$list = new SubpageList3( $parser, $config, $frame ?? false );
+		$list = new self( $parser, $config, $frame ?? false );
 		$list->options( $args );
 
 		# $parser->disableCache();
